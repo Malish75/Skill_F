@@ -1,4 +1,4 @@
-from django.views.generic import ListView, CreateView, DetailView, DeleteView # импортируем класс, который говорит нам о том, что в этом представлении мы будем выводить список объектов из БД
+from django.views.generic import ListView, UpdateView, CreateView, DetailView, DeleteView # импортируем класс, который говорит нам о том, что в этом представлении мы будем выводить список объектов из БД
 from django.shortcuts import render
 from django.core.paginator import Paginator
 
@@ -35,10 +35,10 @@ class ProductsList(ListView):  # создать класс дл вывода с�
 
 
 # создаём представление в котором будет детали конкретного отдельного товара
-class ProductDetail(DetailView): # возвращает какой-то конкретный объект, а не список всех объектов из БД.
-    model = Product  # модель всё та же, но мы хотим получать детали конкретно отдельного товара
-    template_name = 'product.html'  # название шаблона будет product.html
-    context_object_name = 'product'  # название объекта. в нём будет
+# class ProductDetail(DetailView): # возвращает какой-то конкретный объект, а не список всех объектов из БД.
+#     model = Product  # модель всё та же, но мы хотим получать детали конкретно отдельного товара
+#     template_name = 'product.html'  # название шаблона будет product.html
+#     context_object_name = 'product'  # название объекта. в нём будет
 
 
 # дженерик для получения деталей о товаре
@@ -54,18 +54,18 @@ class ProductCreateView(CreateView):
 
 
 # дженерик для редактирования объекта
-# class ProductUpdateView(UpdateView):
-#     template_name = 'sample_app/product_create.html'
-#     form_class = ProductForm
-#
-#     # метод get_object мы используем вместо queryset, чтобы получить информацию об объекте который мы собираемся редактировать
-#     def get_object(self, **kwargs):
-#         id = self.kwargs.get('pk')
-#         return Product.objects.get(pk=id)
+class ProductUpdateView(UpdateView):
+    template_name = 'product_update.html'
+    form_class = ProductForm
+
+    # метод get_object мы используем вместо queryset, чтобы получить информацию об объекте который мы собираемся редактировать
+    def get_object(self, **kwargs):
+        id = self.kwargs.get('pk')
+        return Product.objects.get(pk=id)
 
 
 # дженерик для удаления товара
-# class ProductDeleteView(DeleteView):
-#     template_name = 'product_delete.html'
-#     queryset = Product.objects.all()
-#     success_url = '/products/'
+class ProductDeleteView(DeleteView):
+    template_name = 'product_delete.html'
+    queryset = Product.objects.all()
+    success_url = '/products/'

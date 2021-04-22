@@ -19,15 +19,20 @@
 
 {% for product in filter.qs %}
     <tr>
-        <td>
-           {{ product.name}}
+        <td>  <a href="{% url 'product_detail' product.id %}">{{ product.name}}</a>
+            <a href="{% url 'product_update' product.id %}"><u>Редактировать</u></a> <!-- добавим ссылку на редактирование товара-->
+            <a href="{% url 'product_delete' product.id %}"><u> Удалить </u></a> <!-- добавим ссылку на удаление товара-->
         </td>
         <td>{{ product.category}}</td>
         <td>{{product.price}}</td>
         <td>{{product.quantity}}</td>
+
     </tr></p>
 {% endfor %}
 </table>
+<br>
+<a href="{% url 'product_create' %}">Добавить новый товар</a> <br>
+<br>
 
 {% if is_paginated %}
     {% if page_obj.has_previous %}
@@ -51,11 +56,7 @@
 {% endif %}
 
 
-<form method="POST">
-    {% csrf_token %}
-    {{ form }} <!-- Теперь нам нужна только готовая форма и кнопка -->
-    <input type="submit" value="Добавить товар">
-</form>
+
 
 
 {% endblock content %}

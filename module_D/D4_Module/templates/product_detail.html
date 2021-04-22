@@ -3,34 +3,21 @@
 {% block title %} Products {% endblock title %}
  
 {% block content %}
+    <h3>Информация о товаре</h3>
 <table>
     <thead>
-        <th>
-            Name
-        </th>
-        <th>
-            Category
-        </th>
-        <th>
-            Price
-        </th>
-        <th>
-            Quantity
-        </th>
+        <th>            Name        </th>
+        <th>            Category        </th>
+        <th>            Price        </th>
+        <th>            Quantity        </th>
     </thead>
     <tr>
-        <td>
-            {{ product.name|title }}
-        </td>
-        <td>
-            {{ product.category.name|title }}
-        </td>
-        <td>
-            {{ product.price }}
-        </td>
-        <td>
-            {{ product.quantity }}
-        </td>
+        <td>     {{ product.name }}        </td>
+        <td>            {{ product.category.name }}        </td>
+        <td>            {{ product.price }}        </td>
+        <td>            {{ product.quantity }}        </td>
     </tr>
 </table>
+
+    <br> Подробнее: {{ product.description}}
 {% endblock content %}

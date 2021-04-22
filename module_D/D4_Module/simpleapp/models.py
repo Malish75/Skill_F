@@ -8,7 +8,6 @@ class Product(models.Model):
     price = models.FloatField(validators=[MinValueValidator(0.0, 'Price should be >= 0.0')])
     quantity = models.IntegerField(validators=[MinValueValidator(0, 'Quantity should be >= 0')])
     category = models.ForeignKey(to='Category', on_delete=models.CASCADE, related_name='products', )
-
     description = models.TextField()
 
     def __str__(self):

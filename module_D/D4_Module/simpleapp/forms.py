@@ -8,8 +8,8 @@ class ProductForm(ModelForm):
     # в класс мета как обычно надо написать модель по которой будет строится форма и нужные нам поля. Мы уже делали что-то похожее с фильтрами.
     class Meta:
         model = Product
-        fields = ['name', 'price', 'category', 'quantity',
-                  'check_box'
+        fields = ['name', 'price', 'category', 'quantity', 'description',
+                  'check_box',
                   ]
 
 

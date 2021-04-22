@@ -6,32 +6,16 @@
 <h2>Вы действительно хотите удалить данный товар?</h2>
 <table>
     <thead>
-        <th>
-            Name
-        </th>
-        <th>
-            Category
-        </th>
-        <th>
-            Price
-        </th>
-        <th>
-            Quantity
-        </th>
+        <th>            Name        </th>
+        <th>            Category        </th>
+        <th>            Price        </th>
+        <th>            Quantity        </th>
     </thead>
     <tr>
-        <td>
-            {{ product.name|title }}
-        </td>
-        <td>
-            {{ product.category.name|title }}
-        </td>
-        <td>
-            {{ product.price }}
-        </td>
-        <td>
-            {{ product.quantity }}
-        </td>
+        <td>            {{ product.name }}        </td>
+        <td>            {{ product.category.name }}        </td>
+        <td>            {{ product.price }}        </td>
+        <td>            {{ product.quantity }}        </td>
     </tr>
 </table>
 
