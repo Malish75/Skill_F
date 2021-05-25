@@ -1,0 +1,16 @@
+{% extends 'flatpages/default.html' %}
+{% load censor %} <!-- не забываем заранее загружать наши фильтры! -->
+{% block title %} Post {% endblock title %}
+
+{% block content %}
+<br>
+<h2> {{ post.title|censor:'@#%&$' }} </h2>
+<hr>
+
+{{ post.time_in_new_post|date:'d M Y H:i' }},
+<p>{{post.author.author}}
+<p>{{ post.content_new_post|censor:'@#%&$'}}
+
+
+{% endblock content %}
+
