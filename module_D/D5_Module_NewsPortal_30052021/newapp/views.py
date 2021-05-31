@@ -3,8 +3,8 @@ from .filters import PostFilter  #, SearchFilter
 from .models import Post, Category
 from .forms import PostForm
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView # импортируем класс, который говорит нам о том, что в этом представлении мы будем выводить список объектов из БД
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 
 class PostsList(ListView):
     model = Post  # указываем модель, объекты которой мы будем выводить
@@ -42,9 +42,10 @@ class PostDetailView(DetailView):
     #
 #
 # # дженерик для создания объекта.
-class PostCreateView(CreateView):
+class PostCreateView(PermissionRequiredMixin, CreateView):
     template_name = 'post_create.html'
     form_class = PostForm
+    permission_required = ('newapp.add_post',)
 
 # #
 # # для поиска публикаций
@@ -54,9 +55,10 @@ class PostSearchView(PostsList):
 
 
 # # дженерик для редактирования объекта
-class PostUpdateView(UpdateView):
+class PostUpdateView(PermissionRequiredMixin, UpdateView):
     template_name = 'post_create.html'
     form_class = PostForm
+    permission_required = ('newapp.change_post',)
 
     # метод get_object мы используем вместо queryset, чтобы получить информацию об объекте который мы собираемся редактировать
     def get_object(self, **kwargs):
@@ -65,10 +67,20 @@ class PostUpdateView(UpdateView):
 #
 #
 # дженерик для удаления
-class PostDeleteView(DeleteView):
+class PostDeleteView(PermissionRequiredMixin, DeleteView):
     template_name = 'post_delete.html'
     queryset = Post.objects.all()
     success_url = '/news/'
+    permission_required = ('newapp.delete_post',)
+
+
+# class PostDeleteView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
+#     template_name = 'post_delete.html'
+#     queryset = Post.objects.all()
+#     # context_object_name = 'posts'
+#     success_url = '/news/'
+#     permission_required = 'news.add_post'
+
 
 
 
