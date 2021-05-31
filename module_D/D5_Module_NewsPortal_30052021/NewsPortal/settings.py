@@ -36,12 +36,6 @@ INSTALLED_APPS = [
 
     'fpages',
     'newapp',
-
-
-    #  === NewsPaper ===
-    #'news.apps.AppointmentConfig',
-    #'accounts',
-    # === Авторизация ===
     'sign',
     'protect',
 ]
@@ -149,21 +143,11 @@ AUTHENTICATION_BACKENDS = [
 
 ]
 
-# переменные для ключа API и секретного ключа  Google
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '414708677105-0kkgskh06penei3p1j1ggbl8aqhhr3jr.apps.googleusercontent.com'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'H1AraZ2lgCBNY6Q-pAExPhbn'
-# GOOGLE_OAUTH2_CLIENT_ID = '414708677105-0kkgskh06penei3p1j1ggbl8aqhhr3jr.apps.googleusercontent.com'
-# GOOGLE_OAUTH2_CLIENT_SECRET = 'H1AraZ2lgCBNY6Q-pAExPhbn'
-
-
-
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_VERIFICATION = 'none'
-
-#SOCIAL_AUTH_POSTGRES_JSONFIELD = True
 
 
 # LOGIN_URL = '/sign/login/' # Пользователь не авторизован, поэтому Django перенаправляет его на страницу входа
