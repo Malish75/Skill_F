@@ -1,0 +1,43 @@
+{% extends 'flatpages/default.html' %}
+{% load censor %} <!-- не забываем заранее загружать наши фильтры! -->
+{% block title %} Post detail {% endblock title %}
+
+{% block content %}
+<br>
+<h3> {{ post.title|censor:'@#%&$' }} </h3>
+<hr>
+
+<h5> {{ post.author.author }}, {{ post.time_in_new_post|date:'d M Y H:i' }}</h5>
+
+<div>
+    {% if PCC %}
+    <a> {{ post.get_new_post_display }} из категории <strong> {{ PCC }}  </strong></a>
+    <br><br>
+    <p>{{ post.content_new_post|censor:'@#%&$' }}</p>
+    <br>
+    <div >
+<!--
+        <p>это тут для проверки all_category - фильтр по ID- {{all_category}}
+            <p>это тут для проверки categories -{{categories_set.all}}
+        <p>это тут для проверки user.category_set.all - {{user.category_set.all}}
+
+
+        {% if category.id in user.category_set.all %}
+
+        <p>это тут для проверки category.id -  {{category.id}}-->
+
+            <p><button> <a href="unsubscribe {{category.id}}"> Отписаться</a> </button>
+       <!-- {% else %}-->
+            <p><button> <a href="subscribe {{category.id}}"> Подписаться</a> </button>
+<!--        {% endif %}-->
+
+
+
+    </div>
+    {% else %}
+        <h2>Категория не присвоена!</h2>
+    {% endif %}
+
+
+{% endblock content %}
+
