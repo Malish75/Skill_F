@@ -1,0 +1,15 @@
+{% extends 'flatpages/default.html' %}
+
+{% block title %} Signup {% endblock title %}
+
+{% block content %}
+<h2> Регистрация на сайте </h2>
+
+это из шаблона logout в папке accounts
+
+<form method="post">
+{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="Продолжить">
+</form>
+{% endblock %}
