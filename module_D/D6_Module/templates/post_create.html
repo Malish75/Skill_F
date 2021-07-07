@@ -1,0 +1,39 @@
+{% extends 'flatpages/default.html' %}
+{% load censor %} <!-- не забываем заранее загружать наши фильтры! -->
+{% block title %} Post_add {% endblock title %}
+
+{% block content %}
+
+<br> <h2> Добавление публикации </h2><hr><br>
+
+{% if daily_counter_remain %}
+    {% if daily_counter_remain == 1 %}
+        <p>Сегодня можно добавить еще {{ daily_counter_remain }} публикацию. </p>
+    {% else %}
+        <p>Сегодня можно добавить еще {{ daily_counter_remain }} публикации. </p>
+    {% endif %}
+
+    <form method="POST" class='form-control'>
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Опубликовать" class='btn btn-outline-dark'>
+    </form>
+{% else %}
+    <p>Извините, но лимит публикаций на сегодня исчерпан. Попробуйте завтра.</p>
+{% endif %}
+
+
+{% comment %}
+<br>
+<h2> Добавление публикации </h2>
+<hr><br>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form}}
+    <input type="submit" value="Сохранить">
+</form>
+{% endcomment %}
+
+
+{% endblock content %}
