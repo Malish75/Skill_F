@@ -6,7 +6,8 @@
 
 <br> <h2> Добавление публикации </h2><hr><br>
 
-{% if not list_dates_of_author %}
+
+{% if publications_for_today_limit %}
 <p><a>Сегодня можно добавить еще публикаций: </a> {{publications_for_today_limit}} </p>
 
     <form method="POST" class='form-control'>
@@ -18,6 +19,7 @@
 {% else %}
     <p>Извините, но лимит публикаций на сегодня исчерпан. Попробуйте завтра.</p>
 {% endif %}
+
 
 
 {% comment %}

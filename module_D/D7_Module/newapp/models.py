@@ -42,9 +42,6 @@ class Author(models.Model):
         return f'{self.author}'
 
 
-# ccc = "Привет"
-
-
 class Category(models.Model):
     category_name = models.CharField(max_length=30, unique=True, null=False)
     subscriber = models.ManyToManyField(User, blank=True)

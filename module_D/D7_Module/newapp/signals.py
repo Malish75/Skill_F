@@ -32,21 +32,21 @@ def notify_to_subscribers(sender, instance,**kwargs):
             msg.send()
 
 
-''' СЧЕТЧИК ПО ДОБАВЛЕНИЮ НОВОСТИ ИЗЗА ОГРАНИЧЕНИЯ 3 ПОСТА'''
-@receiver(post_save, sender=Post)
-def daily_counter(sender, instance, created, **kwargs):
-    if created:  #  не забываем добавить, иначе уйдем в бесконечную рекурсия из-за .save()
-        if Post.objects.all().order_by('-time_in_new_post') == 1:
-            last_post_date = Post.objects.all().order_by('-time_in_new_post')[1].time_in_new_post.date()  #  получаем дату предпоследней новости
-        else:
-            last_post_date = Post.objects.all().order_by('-time_in_new_post')[0].time_in_new_post.date()  # нужно если новость одна
-        if last_post_date == instance.time_in_new_post.date():
-            instance.author.daily_posts_add_counter += 1
-        else:
-            instance.author.daily_posts_add_counter = 1
-        instance.author.save()
-    else:
-        pass
+# ''' СЧЕТЧИК ПО ДОБАВЛЕНИЮ НОВОСТИ ИЗЗА ОГРАНИЧЕНИЯ 3 ПОСТА'''
+# @receiver(post_save, sender=Post)
+# def daily_counter(sender, instance, created, **kwargs):
+#     if created:  #  не забываем добавить, иначе уйдем в бесконечную рекурсия из-за .save()
+#         if Post.objects.all().order_by('-time_in_new_post') == 1:
+#             last_post_date = Post.objects.all().order_by('-time_in_new_post')[1].time_in_new_post.date()  #  получаем дату предпоследней новости
+#         else:
+#             last_post_date = Post.objects.all().order_by('-time_in_new_post')[0].time_in_new_post.date()  # нужно если новость одна
+#         if last_post_date == instance.time_in_new_post.date():
+#             instance.author.daily_posts_add_counter += 1
+#         else:
+#             instance.author.daily_posts_add_counter = 1
+#         instance.author.save()
+#     else:
+#         pass
 
 
 # def notify_to_subscribers(sender, instance, **kwargs):

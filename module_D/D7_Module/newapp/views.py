@@ -77,35 +77,21 @@ class PostCreateView(PermissionRequiredMixin, LoginRequiredMixin, CreateView):
     context_object_name = 'posts'
     permission_required = 'newapp.add_post'
     daily_post_limit = 3
-    # todays = datetime.date.today()  # datetime.date(2021, 7, 10)
 
     def get_context_data(self, **kwargs):
-
-        # author = Author.objects.get(author_id=User.objects.get(id=self.request.user.id))
         context = super().get_context_data(**kwargs)
-        author_id = User.objects.get(id=self.request.user.id).id # request.user.id - текущий зарег польз-ль
-        print(author_id)
-        all_posts_self_author = Post.objects.filter(author_id=author_id).values('time_in_new_post')  # <QuerySet [{'time_in_new_post': datetime.datetime(2021, 7, 5, 9, 58, 48, 541411, tzinfo=<UTC>)}
-        # todays = datetime.date.today() # datetime.date(2021, 7, 10)
-        # список из дат новостей юзера за сегодня при добавлении - для определения превышения лимита
-        list_dates_of_author = [item['time_in_new_post'].date() for item in all_posts_self_author if item['time_in_new_post'].date()== datetime.date.today() ]
-        # todays = datetime.date.today()  # datetime.date(2021, 7, 10)
+
+        author = User.objects.get(id=self.request.user.id).id # request.user.id - текущий зарег польз-ль  asmal75 --> 35
+        author_id_id = Author.objects.get(author_id=author).id   # 35 юзера  -- >  9 автора
+        all_posts_self_author = Post.objects.filter(author_id=author_id_id).values('time_in_new_post')  # <QuerySet [{'time_in_new_post': datetime.datetime(2021, 7, 5, 9, 58, 48, 541411, tzinfo=<UTC>)}
+        now = datetime.now()
+        list_dates_of_author = [item['time_in_new_post'].date() for item in all_posts_self_author if item['time_in_new_post'].date() == now.date()]
+
         context['publications_for_today_limit'] = self.daily_post_limit - len(list_dates_of_author)
-
-
-        # try:
-        #     context['daily_counter_remain'] = self.daily_post_limit - author.daily_posts_add_counter
-        # except:
-        #     pass  # потом отловить
-
 
         return context
 
-
-# today = datetime.datetime.today()
-# print (today)
 # print( today.strftime("%m/%d/%Y") )
-
 
 
 # для поиска публикаций
