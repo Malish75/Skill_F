@@ -25,6 +25,7 @@ def weekly_newsletter_to_subscribers():
         subscriber_list = [{i['username']: i['email']} for i in username_email]
 
         ''' ПОЛУЧЕНИЕ СПИСКА НОВОСТЕЙ ПО КАТЕГОРЯИМ ЗА НЕДЕЛЮ'''
+        #   ТУТ НЕПРАВИЛЬНО ПОЛОВИНА, ВЗЯТЬ КОД ИЗ РАСССЫЛКИ ПО ТАСКАМ
         posts_list_weekly = []
         posts_category = PostCategory.objects.filter(
             category_id=val).values()  # <QuerySet [{'id': 216, 'post_id': 434, 'category_id': 8}, {'id': 217, 'post_id': 435, 'category_id': 8},

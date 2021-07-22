@@ -8,6 +8,45 @@ from django.contrib import messages
 from django.core.mail import send_mail
 from django.shortcuts import redirect, reverse, render
 
+from django.http import HttpResponse
+from django.views import View
+
+#####  тест для проверки  CELERY & REDIS  #####
+# from .tasks import hello, printer
+# class IndexView(View):
+#     def get(self, request):  # выполнить задачу hello и вернуть только 'Hello!' в браузер
+#         printer.delay(10)  # 10 - аргумент, передается в printer и там обрабатывается
+#         # printer.apply_async([10], countdown=5)
+#         # printer.apply_async([10], eta=datetime.now() + timedelta(seconds=5))
+#         # hello.delay()
+#         return HttpResponse('Hello!')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 class PostsList(ListView):
@@ -80,15 +119,12 @@ class PostCreateView(PermissionRequiredMixin, LoginRequiredMixin, CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-
         author = User.objects.get(id=self.request.user.id).id # request.user.id - текущий зарег польз-ль  asmal75 --> 35
         author_id_id = Author.objects.get(author_id=author).id   # 35 юзера  -- >  9 автора
         all_posts_self_author = Post.objects.filter(author_id=author_id_id).values('time_in_new_post')  # <QuerySet [{'time_in_new_post': datetime.datetime(2021, 7, 5, 9, 58, 48, 541411, tzinfo=<UTC>)}
         now = datetime.now()
         list_dates_of_author = [item['time_in_new_post'].date() for item in all_posts_self_author if item['time_in_new_post'].date() == now.date()]
-
         context['publications_for_today_limit'] = self.daily_post_limit - len(list_dates_of_author)
-
         return context
 
 # print( today.strftime("%m/%d/%Y") )

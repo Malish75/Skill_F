@@ -1,0 +1,36 @@
+{% extends 'flatpages/default.html' %}
+{% load censor %} <!-- не забываем заранее загружать наши фильтры! -->
+{% block title %} Post_add {% endblock title %}
+
+{% block content %}
+
+<br> <h2> Добавление публикации </h2><hr><br>
+
+
+{% if publications_for_today_limit %}
+<p><a>Ваш лимит публикаций на сегодня: </a> {{publications_for_today_limit}} </p>
+
+    <form method="POST" class='form-control'>
+        {% csrf_token %}
+        <!--{{ form }}-->
+<!--        {{ form.as_p }}-->
+        <!--
+        <input type="submit" value="Опубликовать" class='btn btn-outline-dark'>
+        -->
+        <!--<button type="submit" class="btn btn-primary btn-block">Опубликовать</button>-->
+        <div class="form-group">
+            <label for="{{ form.title.id_for_label }}"> Заголовок </label>
+            {{ form.title }}
+        </div>
+
+
+
+
+
+    </form>
+
+{% else %}
+    <p>Извините, но лимит публикаций на сегодня исчерпан. Попробуйте завтра.</p>
+{% endif %}
+
+{% endblock content %}

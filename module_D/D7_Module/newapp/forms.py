@@ -1,5 +1,5 @@
-from django.forms import ModelForm, BooleanField
-from .models import Post, Comment
+from django.forms import ModelForm, Form
+from .models import Post, Comment, Category
 from django import forms
 
 
@@ -13,7 +13,17 @@ class PostForm(ModelForm):
                   'content_new_post',
                   'category',
                   'author',
+                  'is_published',
                   ]
+
+# ''' а тут из ютуба'''
+# class PostForm(forms.Form):
+#     title = forms.CharField(max_length=150)
+#     content_new_post = forms.CharField()
+#     is_published = forms.BooleanField()
+#     category = forms.ModelChoiceField(queryset=Category.objects.all())
+#     category = forms.MultipleChoiceField(choices=Category.objects.all().values('category_name'))
+
 
 
 class CommentForm(ModelForm):

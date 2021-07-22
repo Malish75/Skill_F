@@ -9,11 +9,7 @@ from django.core.mail import EmailMessage
 from newapp.models import Category, PostCategory, Post
 
 
-print("Start")
-
 def my_test():
-
-    print("Внутри my_test")
 
     all_categories = Category.objects.filter().values('id')  # <QuerySet [{'id': 1}, {'id': 2}, ...}]>
     for val in all_categories.values():
@@ -34,7 +30,7 @@ def my_test():
                      Post.objects.filter(id=item['post_id']).values('id'))  # <QuerySet [{'id': 434}
                 )  # <QuerySet ['Необычный дуалбут: ноутбук с «двойным дном»', '434'
 
-        print(posts_list_weekly)
+        # print(posts_list_weekly)
 
         '''ОТПРАВКА ПИСЕМ'''
         # title = instance.title.encode('utf-8')  # у меня на одном из проектов ругался на кодировку
@@ -52,8 +48,6 @@ def my_test():
                 msg = EmailMessage(subject, html_content, from_email, [to_email])
                 msg.content_subtype = "html"
                 msg.send()
-   # тут много кода
-
 
 #
 # if __name__ == '__main__':

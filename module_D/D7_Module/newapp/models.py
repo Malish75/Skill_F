@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 from django.contrib.auth.models import User
+from django import forms
 
 
 class Author(models.Model):
@@ -43,7 +44,7 @@ class Author(models.Model):
 
 
 class Category(models.Model):
-    category_name = models.CharField(max_length=30, unique=True, null=False)
+    category_name = models.CharField(max_length=30, unique=True, null=False,)
     subscriber = models.ManyToManyField(User, blank=True)
 
     def __str__(self):
@@ -61,10 +62,11 @@ class Post(models.Model):
     new_post = models.CharField(max_length = 2, choices = POST_NEW, default = post, verbose_name="Тип")
     time_in_new_post = models.DateTimeField(auto_now_add=True, verbose_name="Дата публикации")
     title = models.CharField(max_length=150, verbose_name="Заголовок", null=False)
-    content_new_post = models.TextField(null=False, verbose_name="Контент")
+    content_new_post = models.TextField(null=False, verbose_name="Текст",
+                                        )
     rating_new_post = models.FloatField(default=0.0, verbose_name="Рейтинг")
     # photo = models.ImageField(upload_to='photos/%Y/%m/%d', verbose_name="Фото", blank=True)
-    # is_published = models.BooleanField(default=True, verbose_name="Опубликовано")
+    is_published = models.BooleanField(default=False, verbose_name="Опубликовано")
     updated_at = models.DateTimeField(auto_now=True, null=True, verbose_name="Обновлено")
     category = models.ManyToManyField(Category, through='PostCategory')
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
@@ -93,7 +95,7 @@ class Post(models.Model):
 
 class PostCategory(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=False)
 
 
 class Comment(models.Model):

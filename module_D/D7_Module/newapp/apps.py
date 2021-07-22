@@ -1,4 +1,5 @@
 from django.apps import AppConfig
+import redis
 
 
 class NewConfig(AppConfig):
@@ -15,5 +16,15 @@ class NewConfig(AppConfig):
 
 
 
+
+
+
+# red = redis.Redis(
+#     host='localhost', #:10773
+#     port=6379,
+#     # host='redis-10773.c274.us-east-1-3.ec2.cloud.redislabs.com', #:10773
+#     # port=10773,
+#     # password='CHtEAiUtn3EMO5IGQfpAEwbJ07OGyURz'
+# )
 
 

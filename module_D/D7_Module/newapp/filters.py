@@ -7,7 +7,13 @@ import django_filters
 class PostFilter(FilterSet):
     title = django_filters.CharFilter(field_name='title',
                                       lookup_expr='icontains',
-                                      label='Заголовок')
+                                      label='По заголовку')
+
+    content_new_post = django_filters.CharFilter(field_name='content_new_post',
+                                      lookup_expr='icontains',
+                                      label='По тексту')
+
+
     datetime = django_filters.DateFilter(field_name='time_in_new_post',
                                          widget=DateInput(attrs={'type': 'date'}),
                                          lookup_expr='gt', label='Не позднее')
@@ -17,6 +23,7 @@ class PostFilter(FilterSet):
         model = Post
         fields = (
             'title',
+            'content_new_post'
             'datetime',
         )
         fields = {
