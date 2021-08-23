@@ -1,0 +1,74 @@
+{% extends 'flatpages/default.html' %}
+{% load censor %} <!-- не забываем заранее загружать наши фильтры! -->
+{% block title %} Post_add {% endblock title %}
+
+{% block content %}
+
+<br> <h2> Добавление публикации </h2><hr><br>
+
+
+{% if publications_for_today_limit %}
+
+<p><a>Ваш лимит публикаций на сегодня: </a> {{publications_for_today_limit}} </p>
+
+
+{% load cache %} <!-- Загружаем кэширование -->
+    {% cache 30 header %} <!-- Кэшируем отдельный блок на 30 секунд -->
+        {% block header %}
+
+    <form method="POST" class='form-control'>
+        {% csrf_token %}
+        {{ form.non_field.errors }}
+
+        <div class="form-group">
+            <label for="{{ form.title.id_for_label }}"> Заголовок </label>
+            {{ form.title }}
+            <div class="invalid-feedback">
+                {{ form.title.errors }}
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.content_new_post.id_for_label }}"> Текст </label>
+            {{ form.content_new_post }}
+            <div class="invalid-feedback">
+                {{ form.content_new_post.errors }}
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.category.id_for_label }}"> Категория </label>
+            {{ form.category}}
+            <div class="invalid-feedback">
+                {{ form.category.errors }}
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.author.id_for_label }}"> Автор </label>
+            {{ form.author }}
+            <div class="invalid-feedback">
+                {{ form.author.errors }}
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.is_published.id_for_label }}"> Опубликовано </label>
+            {{ form.is_published }}
+            <div class="invalid-feedback">
+                {{ form.is_published.errors }}
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Опубликовать</button>
+
+    </form>
+
+    {% endblock header %}
+{% endcache %}
+
+{% else %}
+    <p>Извините, но лимит публикаций на сегодня исчерпан. Попробуйте завтра.</p>
+{% endif %}
+
+{% endblock content %}
