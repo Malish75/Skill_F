@@ -1,0 +1,17 @@
+{% extends 'flatpages/default.html' %}
+{% load i18n %}
+
+
+
+{% block title %}
+    {{ flatpage.title }}
+{% endblock title %}
+
+{% block content %}
+
+<h2>О нас %}</h2>
+    <hr>
+   {{ flatpage.content }}
+    <p><a> /из шаблона/ это будущий блок страницы с информацией о нас </a></p>
+
+{% endblock content %}
