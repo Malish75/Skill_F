@@ -1,0 +1,15 @@
+{% extends 'flatpages/default.html' %}
+{% load i18n %}
+
+
+{% block title %}
+    {{ flatpage.title }}
+{% endblock title %}
+
+{% block content %}
+<h2>{% trans "Наши контакты" %}</h2>
+    <hr>
+    {{ flatpage.content }}
+
+
+{% endblock content %}

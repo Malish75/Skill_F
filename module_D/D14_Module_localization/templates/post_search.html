@@ -1,0 +1,29 @@
+{% extends 'flatpages/default.html' %}
+{% load i18n %}
+{% load censor %}
+
+{% block title %}Search{% endblock title %}
+
+{% block content %}
+
+<h2>{% trans 'Поиск публикаций' noop%} </h2><hr>
+
+<form method="GET">
+    {{ filter.form }}
+    <input type="submit" value="{% trans 'Найти' noop%}">
+</form>
+
+<table>
+    <th> {% trans 'Дата публикации' %}</th><th>{% trans 'Автор' %}</th><th> {% trans 'Заголовок' %} </th><th> {% trans 'Текст' %}</th>
+    <br>
+    {% for post in filter.qs %}
+    <tr>
+        <td>{{ post.time_in_new_post|date:'d F Y H:i' }}</td>
+        <td>{{ post.author.author }}</td>
+        <td><a href="{% url 'post_detail' post.id %}">{{ post.title|truncatewords:10|censor:'@#%&$' }} </a> </td>
+        <td>{{ post.content_new_post|truncatewords:10|censor:'@#%&$' }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock content %}

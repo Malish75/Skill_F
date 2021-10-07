@@ -1,0 +1,165 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-09-29 17:11+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\templates\flatpages\about.html:11 .\templates\flatpages\default.html:50
+msgid "О нас"
+msgstr "About Us"
+
+#: .\templates\flatpages\about.html:14
+msgid "это будущий блок страницы с информацией о нас"
+msgstr "this is the future block of the page with information about us"
+
+#: .\templates\flatpages\contact.html:10
+msgid "Наши контакты"
+msgstr "Our Contacts"
+
+#: .\templates\flatpages\default.html:25
+msgid "учебный"
+msgstr "training"
+
+#: .\templates\flatpages\default.html:49
+msgid "Новости"
+msgstr "News"
+
+#: .\templates\flatpages\default.html:51
+msgid "Контакты"
+msgstr "Contacts"
+
+#: .\templates\flatpages\default.html:52
+msgid "Админка"
+msgstr "Admins Panel"
+
+#: .\templates\flatpages\default.html:53
+msgid "Выход"
+msgstr "Exit"
+
+#: .\templates\flatpages\default.html:94
+msgid "Это исходный текст на русском"
+msgstr "This is a translated text into English"
+
+#: .\templates\post_create.html:8
+msgid "Добавление публикации"
+msgstr "Adding a publication"
+
+#: .\templates\post_create.html:13
+msgid "Ваш лимит публикаций на сегодня"
+msgstr "Your publication limit for today"
+
+#: .\templates\post_create.html:25 .\templates\post_search.html:17
+#: .\templates\posts.html:48
+msgid "Заголовок"
+msgstr "Heading"
+
+#: .\templates\post_create.html:33 .\templates\post_search.html:17
+#: .\templates\posts.html:48
+msgid "Текст"
+msgstr "Text"
+
+#: .\templates\post_create.html:41
+msgid "Категория"
+msgstr "Category"
+
+#: .\templates\post_create.html:49 .\templates\post_search.html:17
+#: .\templates\posts.html:48
+msgid "Автор"
+msgstr "Author"
+
+#: .\templates\post_create.html:57
+msgid "Опубликовано"
+msgstr "Published"
+
+#: .\templates\post_create.html:64
+msgid "Опубликовать"
+msgstr "To publish"
+
+#: .\templates\post_create.html:72
+msgid "Извините, но лимит публикаций на сегодня исчерпан. Попробуйте завтра."
+msgstr "Sorry, but your publication limit has been reached for today. Try it "
+
+#: .\templates\post_delete.html:11
+msgid "Действительно хотите удалить публикацию?"
+msgstr "Do you really want to delete a post?"
+
+#: .\templates\post_delete.html:22
+msgid "Да, удалить"
+msgstr "Yes, to delete"
+
+#: .\templates\post_detail.html:27
+msgid "из категории"
+msgstr "from category"
+
+#: .\templates\post_detail.html:33 .\templates\post_detail.html:34
+msgid "Подписаться"
+msgstr "Subscribe"
+
+#: .\templates\post_detail.html:40 .\templates\post_detail.html:41
+msgid "Отписаться"
+msgstr "Unsubscribe"
+
+#: .\templates\post_detail.html:53
+msgid "Категория не присвоена!"
+msgstr "Category not assigned!"
+
+#: .\templates\post_search.html:17 .\templates\posts.html:48
+msgid "Дата публикации"
+msgstr "Date of publication"
+
+#: .\templates\post_update.html:7
+msgid "Редактирование"
+msgstr "Editing"
+
+#: .\templates\post_update.html:13 .\templates\posts.html:57
+msgid "Редактировать"
+msgstr "Edit"
+
+#: .\templates\posts.html:7
+msgid "Главная страница портала"
+msgstr "The main page of the portal"
+
+#: .\templates\posts.html:32
+msgid "Всего публикаций"
+msgstr "Total publications"
+
+#: .\templates\posts.html:36
+msgid "Страница авторизованного пользователя"
+msgstr "Authorized User Page"
+
+#: .\templates\posts.html:41
+msgid "Поиск"
+msgstr "Search"
+
+#: .\templates\posts.html:42
+msgid "Добавить публикацию"
+msgstr "Add a post"
+
+#: .\templates\posts.html:58
+msgid "Удалить"
+msgstr "Remove"
+
+#: .\templates\posts.html:78
+msgid "Первая"
+msgstr "First"
+
+#: .\templates\posts.html:92
+msgid "Последняя"
+msgstr "Last"
+
+#: .\templates\posts.html:99
+msgid "Новостей нет"
+msgstr "There is no news"

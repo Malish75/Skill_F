@@ -1,0 +1,25 @@
+{% extends 'flatpages/default.html' %}
+{% load censor %} <!-- не забываем заранее загружать наши фильтры! -->
+{% load i18n %}
+
+
+{% block title %} Post_delete {% endblock title %}
+
+{% block content %}
+
+<br>
+<h2> {%  trans 'Действительно хотите удалить публикацию?' %} </h2>
+<hr>
+<br>
+
+{{ post.time_in_new_post|date:'d M Y H:i' }},
+<p>{{ post.author.author }}
+<p>{{ post.content_new_post|censor:'@#%&$'|truncatewords:15}}
+
+
+<form method="POST">
+    {% csrf_token %}
+    <input type="submit" value='{% trans "Да, удалить" %}'></form>
+
+
+{% endblock content %}

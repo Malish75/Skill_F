@@ -1,0 +1,57 @@
+{% extends 'flatpages/default.html' %}
+{% load censor %} <!-- не забываем заранее загружать наши фильтры! -->
+{% block title %} Post detail {% endblock title %}
+{%  load i18n %}
+
+
+{% block content %}
+{% comment %}Кэшируем отдельный блок на 30 секунд{% endcomment %}
+{% load cache %}
+    {% cache 30 header %}
+        {% block header %}
+        {% endblock header %}
+    {% endcache %}
+
+
+<br><br>
+<h3> {{ post.title|censor:'@#%&$' }} </h3>
+<hr>
+
+<br><br>
+
+<h5> {{ post.author.author }}, {{ post.time_in_new_post|date:'d M Y H:i' }}</h5>
+
+<div>
+    {% if PCC %}
+    {{ post.get_new_post_display }} {% trans 'из категории' %}: <strong>{{ PCC }}</strong>
+    <div>
+        {% if user.is_authenticated %}
+            {% if not is_subscriber %}
+            <form action="{% url 'subscribe' PCC.pk %}" method="POST">
+            {% csrf_token %}
+            <button title= "{% trans "Подписаться" %}" style="border-radius: 5px; box-shadow: 0px 1px 3px; font-size: 16px;">
+                {% trans "Подписаться" %}</button>
+            </form>
+        {% endif %}
+        {% if is_subscriber %}
+            <form action="{% url 'subscribe' PCC.pk %}" method="POST">
+            {% csrf_token %}
+            <button title="{% trans 'Отписаться' %}"style="border-radius: 5px; box-shadow: 0px 1px 3px; font-size: 16px;">
+                {% trans 'Отписаться' %}</button>
+            </form>
+        {% endif %}
+    {% endif %}
+    </div>
+
+    <br><br>
+
+    <p>{{ post.content_new_post|censor:'@#%&$' }}</p>
+    <br>
+
+    {% else %}
+        <h2> {% trans 'Категория не присвоена!' %}</h2>
+    {% endif %}
+
+</div>
+
+{% endblock content %}

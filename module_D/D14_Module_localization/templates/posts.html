@@ -1,0 +1,90 @@
+{% extends 'flatpages/default.html' %}
+{% load i18n %}
+{% load tz %} <!-- тег для работы с часовыми поясами -->
+{% load censor %} <!-- не забываем заранее загружать наши фильтры! -->
+
+
+{% block title %} {%  trans 'Главная страница портала' %} {% endblock title %}
+{% block content %}
+{% comment %} {% get_current_timezone as TIME_ZONE %}
+<form action="" method="POST">
+    {% csrf_token %}
+    <label for="timezone">Time zone:</label>
+    <select name="timezone">
+        {% for tz in timezones %}
+        <option value="{{ tz }}"{% if tz == TIME_ZONE %} selected{% endif %}>{{ tz }}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="Set">
+</form>
+
+     <!-- Отображаем время в выбранном часовом поясе  -->
+  {% endcomment %}
+
+
+
+
+
+<!--<h3>{{ time_now|date:'d M Y' }}</h3>  -->
+<!--<h3> {{ value1|default_if_none:"ничего" }} </h3> -->
+<!-- <h2>Всего публикаций - {{posts|length}} </h2> -->
+<h3>{%  trans 'Всего публикаций' %} - {{all_posts}} </h3>
+<hr>
+
+{% if user.is_authenticated %}
+<h5> {% trans 'Страница авторизованного пользователя' %} <b> {{request.user.username}} </b></h5>
+{% endif %}
+
+
+
+    <p align="left"><a href="{% url 'post_search.html' %}"> <u><b> {% trans 'Поиск' %} </b></u></a></p>
+    <p align="left"> <a href="{% url 'post_create.html' %}"> <u><b> {% trans 'Добавить публикацию' %} </b></u></a></p>
+
+
+{% if posts %}
+    <table>
+        <th> {% trans 'Дата публикации' %}</th><th>{% trans 'Автор' %}</th><th> {% trans 'Заголовок' %} </th><th> {% trans 'Текст' %}</th> <!--<th>Категория</th>-->
+        <br>
+        {% for post in object_list %}
+             <tr>
+                <td>{{ post.time_in_new_post|date:'Y-m-d H:i:s' }}</td>
+                <td>{{ post.author.author }}</td>
+                <td><a href="{% url 'post_detail' post.id %}">{{ post.title|censor:'@#%&$'|truncatewords:10 }}</a></td>
+                <td>{{ post.content_new_post|truncatewords:10|censor:'@#%&$' }}</td>
+               <!-- <td>{{ categories }}</td>-->
+                <td><a href="{% url 'post_update' post.id %}"><u> {% trans 'Редактировать' %}</u></a><a>&nbsp;</a></td>
+                <td><a href="{% url 'post_delete' post.id %}"><u> {% trans 'Удалить' %} </u></a></td>
+             </tr>
+        {% endfor %}
+    </table>
+<p></p>
+
+
+    {% if is_paginated %}
+    {% if page_obj.has_previous %}
+        <a href="?page=1">{% trans "Первая" %}</a>
+        <a href="?page={{ page_obj.previous_page_number }}"><<<</a>
+    {% endif %}
+
+    {% for num in page_obj.paginator.page_range %}
+        {% if page_obj.number == num %}
+            <a>{{ num }}</a>
+        {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+            <a href="?page={{ num }}">{{ num }}</a>
+        {% endif %}
+    {% endfor %}
+
+    {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">>>></a>
+        <a href="?page={{ page_obj.paginator.num_pages}}">{% trans 'Последняя' %}</a>
+    {% endif %}
+  {% endif %}
+
+
+
+{% else %}
+    <h3>{% trans 'Новостей нет' %}</h3>
+
+{% endif %}
+
+{% endblock content %}

@@ -1,0 +1,6 @@
+2021-09-28 11:42:54,785 WARNING log   Forbidden (CSRF token missing or incorrect.): /i18n/setlang/
+2021-09-28 11:43:07,663 WARNING log   Forbidden (CSRF token missing or incorrect.): /i18n/setlang/
+2021-09-30 10:08:22,265 WARNING log   Forbidden (CSRF token missing or incorrect.): /i18n/setlang/
+2021-09-30 10:08:31,345 WARNING log   Forbidden (CSRF token missing or incorrect.): /i18n/setlang/
+2021-09-30 10:08:46,911 WARNING log   Forbidden (CSRF token missing or incorrect.): /i18n/setlang/
+2021-09-30 10:08:55,254 WARNING log   Forbidden (CSRF token missing or incorrect.): /i18n/setlang/
