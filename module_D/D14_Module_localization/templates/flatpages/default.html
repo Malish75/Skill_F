@@ -1,8 +1,11 @@
+<!DOCTYPE html>
+
 {% load static %}
 {% load i18n %}
 {% load tz %} <!-- тег для работы с часовыми поясами -->
-
 {% load bootstrap4 %}
+
+
 <script src="{% bootstrap_jquery_url %}"></script>
 {% bootstrap_javascript %}
 {% bootstrap_css %}
@@ -10,35 +13,18 @@
 
 <html lang="ru">
 <head>
-  <title>Dj_flatpages - {% block title %}{% endblock title %}
-  </title>
-  
-{% comment %}
-
-<!-- Если сейчас больше чем 19 или же меньше 7, то выводим тёмную тему, иначе выводим светлую -->
-    <style>
-        body {background-color: {% if current_time.hour >= 17 or current_time.hour <= 7 %} darkcyan {% else %} powderblue {% endif %};}
-    </style>
-
-{% endcomment %}
-
-  
-  
-  
-  <!-- Bootstrap core CSS -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-   <link rel="stylesheet" href="css/bootstrap.css" >
-</head>
+  <link rel="stylesheet" href="css/bootstrap.css" >
+  <title>Dj_flatpages - {% block title %}{% endblock title %}</title>
 
 <body>
-  <!-- Navigation -->
-
+  <!-- ########################    Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
       <a class="navbar-brand" href="#">News Portal</a><a class="navbar-brand" href="#">({% trans 'учебный'%})</a>
 
-    <!-- ВЫБОР ЯЗЫКА -->
+<!-- ########################    ВЫБОР ЯЗЫКА    ############################-->
 <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
     <input name="next" type="hidden" value="{{ redirect_to }}">
     <select name="language">
@@ -82,31 +68,35 @@
         {% endfor %}
     </select>
     <input type="submit" value="Set">
+</form>
 
-<h5> {{ TIME_ZONE }} {{ current_time|timezone:TIME_ZONE }}  </h5> <!-- Отображаем время в выбранном часовом поясе  -->
+{{ TIME_ZONE }}  {{ current_time|timezone:TIME_ZONE }} <!-- Отображаем время в выбранном часовом поясе  -->
 
+<!-- Если сейчас больше чем 19 или же меньше 7, то выводим тёмную тему, иначе выводим светлую -->
+ {% comment %} current_time|date:'H' >= 17 or current_time|date:'H' <= 7 %} {% endcomment %}
+<style>
+    body {background-color:{% if current_time.hour >= 18 or current_time.hour <= 7 %} powderblue {% endif %};}
+</style>
 
-
-
+</head>
 
   <!-- Page Content -->
-  <div class="container">
+<div class="container">
     <div class="row">
-      <div class="col-lg-12 text-center">
-       {% block content %}
-          <h2>{{ flatpage.title }}</h2>
-        <hr>
-       {% endblock content %}
-      </div>
+        <div class="col-lg-12 text-center">
+        {% block content %}
+            <h2>{{ flatpage.title }}</h2><hr>
+        {% endblock content %}
+        </div>
     </div>
-  </div>
+</div>
 
 
+<!-- Bootstrap core JavaScript -->
+<script src="{% static 'vendor/jquery/jquery.slim.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="{% static 'vendor/jquery/jquery.slim.min.js' %}"></script>
-  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
 
 </body>

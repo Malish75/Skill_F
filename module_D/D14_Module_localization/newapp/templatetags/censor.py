@@ -19,3 +19,5 @@ def censor(value, arg):  # value|censor:arg
                 list_value[i] = arg
 
     return ' '.join(list_value)
+
+

@@ -1,3 +1,6 @@
+# pip freeze > requirements.txt
+# pip install -r полный путь\requirements.txt
+#
 aiohttp==3.7.4.post0
 amqp==5.0.6
 APScheduler==3.7.0

@@ -1,3 +1,5 @@
+
+
 {% extends 'flatpages/default.html' %}
 {% load i18n %}
 {% load tz %} <!-- тег для работы с часовыми поясами -->
@@ -6,22 +8,6 @@
 
 {% block title %} {%  trans 'Главная страница портала' %} {% endblock title %}
 {% block content %}
-{% comment %} {% get_current_timezone as TIME_ZONE %}
-<form action="" method="POST">
-    {% csrf_token %}
-    <label for="timezone">Time zone:</label>
-    <select name="timezone">
-        {% for tz in timezones %}
-        <option value="{{ tz }}"{% if tz == TIME_ZONE %} selected{% endif %}>{{ tz }}</option>
-        {% endfor %}
-    </select>
-    <input type="submit" value="Set">
-</form>
-
-     <!-- Отображаем время в выбранном часовом поясе  -->
-  {% endcomment %}
-
-
 
 
 
