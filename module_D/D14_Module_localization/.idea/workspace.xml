@@ -22,25 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3c229267-0daa-4cc8-92bc-deb29b396333" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewsPortal/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPortal/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache_files/81c49dd3c2127857dc554fe37adda9b5.djcache" beforeDir="false" afterPath="$PROJECT_DIR$/cache_files/81c49dd3c2127857dc554fe37adda9b5.djcache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache_files/c7992ab6d96eef92fdffdac20b764b53.djcache" beforeDir="false" afterPath="$PROJECT_DIR$/cache_files/c7992ab6d96eef92fdffdac20b764b53.djcache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache_files/fdb5f77e1817b205c003cb1ead4623ee.djcache" beforeDir="false" afterPath="$PROJECT_DIR$/cache_files/fdb5f77e1817b205c003cb1ead4623ee.djcache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/errors.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/errors.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/flatpages/default.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/flatpages/default.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/flatpages/default_old.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/post_create.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/post_create.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/post_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/post_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/post_search.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/post_search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/posts.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/posts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/template.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/test.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/НЕДОДЕЛКИ" beforeDir="false" afterPath="$PROJECT_DIR$/НЕДОДЕЛКИ" afterDir="false" />
-    </list>
+    <list default="true" id="3c229267-0daa-4cc8-92bc-deb29b396333" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -320,6 +302,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="429" y="223" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1633891358697">
