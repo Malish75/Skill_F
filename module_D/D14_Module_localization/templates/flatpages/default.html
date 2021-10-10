@@ -18,6 +18,10 @@
   <link rel="stylesheet" href="css/bootstrap.css" >
   <title>Dj_flatpages - {% block title %}{% endblock title %}</title>
 
+<style>
+    body {background-color:{% if current_time.hour >= 18 or current_time.hour <= 7 %} powderblue {% endif %};}
+</style>
+</head>
 <body>
   <!-- ########################    Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
@@ -32,7 +36,7 @@
         {% get_available_languages as LANGUAGES %}
         {% get_language_info_list for LANGUAGES as languages %}
         {% for language in languages %}
-            <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+            <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %} selected {% endif %} >
                 {{ language.name_local }} ({{ language.code }})
             </option>
         {% endfor %}
@@ -64,7 +68,7 @@
     <label for="timezone">Time zone:</label>
     <select name="timezone">
         {% for tz in timezones %}
-        <option value="{{ tz }}"{% if tz == TIME_ZONE %} selected{% endif %}>{{ tz }}</option>
+        <option value="{{ tz }}" {% if tz == TIME_ZONE %} selected{% endif %}>{{ tz }}</option>
         {% endfor %}
     </select>
     <input type="submit" value="Set">
@@ -74,14 +78,9 @@
 
 <!-- Если сейчас больше чем 19 или же меньше 7, то выводим тёмную тему, иначе выводим светлую -->
  {% comment %} current_time|date:'H' >= 17 or current_time|date:'H' <= 7 %} {% endcomment %}
-<style>
-    body {background-color:{% if current_time.hour >= 18 or current_time.hour <= 7 %} powderblue {% endif %};}
-</style>
 
-</head>
 
-  <!-- Page Content -->
-<div class="container">
+  <div class="container">
     <div class="row">
         <div class="col-lg-12 text-center">
         {% block content %}

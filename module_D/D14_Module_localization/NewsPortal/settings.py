@@ -41,7 +41,7 @@ INSTALLED_APPS = [
 
     'fpages',
     'bootstrap4',
-    # 'newapp',
+     # 'newapp',
     'sign',
     'protect',
     #любые обработчики сигналов, добавленные в signals.py, будут автоматически подключаться к нашему приложению.
