@@ -1,0 +1,23 @@
+{% extends 'boardapp/default.html' %}
+
+{% block title %} Главная {% endblock %}
+
+{% block content %}
+  <h2> Все объявления: </h2><br>
+
+  {% if posts %}
+    {% for el in posts %}
+      <div class="alert alert-warning mt-2">
+        <h4><a href="{% url 'post_detail' pk=el.pk %}">{{el.title_post }} </a></h4>
+        <p> {{ el.text_post }} <br>
+        <i> {{ el.dt_post}} <br> Категория - {{el.category_post}} </i></p>
+
+
+
+      </div>
+    {% endfor %}
+  {% else %}
+    <h4> Список объявлений пуст. </h4>
+  {% endif %}
+
+{% endblock %}

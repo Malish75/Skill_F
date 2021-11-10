@@ -1,0 +1,52 @@
+{% extends 'boardapp/default.html' %}
+
+{% block title %} Объявление {% endblock %}
+
+{% block content %}
+
+
+
+<table>
+    <tr>
+        <td>
+
+            <div class="alert alert-warning mt-2">
+  <h4> {{post.title_post}} </a></h4>
+   <p> {{ post.text_post }} <br>
+       -----------------------------<br>
+   <i> Автор -  СДЕЛАТЬ!!   , {{ post.dt_post}} <br>
+       Категория - {{post.category_post}} </i></p>
+</div>
+
+
+        </td>
+
+        <td>
+
+            <button type="submit" class="btn btn-success">Написать отклик</button>
+
+        </td>
+
+
+    </tr>
+
+
+
+
+
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
