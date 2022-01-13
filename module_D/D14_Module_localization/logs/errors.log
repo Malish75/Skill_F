@@ -3310,3 +3310,393 @@ Traceback (most recent call last):
     raise MultiValueDictKeyError(key)
 django.utils.datastructures.MultiValueDictKeyError: 'timezone'
 2021-10-07 15:28:46,503 ERROR "POST /news/set_timezone HTTP/1.1" 500 80013 C:\Python38\lib\site-packages\django\core\servers\basehttp.py None
+2021-10-10 20:36:04,051 ERROR You're accessing the development server over HTTPS, but it only supports HTTP.
+ C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\core\servers\basehttp.py None
+2021-10-10 22:34:19,575 ERROR You're accessing the development server over HTTPS, but it only supports HTTP.
+ C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\core\servers\basehttp.py None
+2021-10-10 22:34:19,599 ERROR You're accessing the development server over HTTPS, but it only supports HTTP.
+ C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\core\servers\basehttp.py None
+2021-10-10 22:34:46,808 ERROR Internal Server Error: / C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\utils\log.py (<class 'django.template.exceptions.TemplateSyntaxError'>, TemplateSyntaxError("'bootstrap4' is not a registered tag library. Must be one of:\naccount\nadmin_list\nadmin_modify\nadmin_urls\ncache\ncensor\nflatpages\ni18n\nl10n\nlog\nsocialaccount\nstatic\ntz"), <traceback object at 0x00000214825C9B00>)
+Traceback (most recent call last):
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\defaulttags.py", line 1034, in find_library
+    return parser.libraries[name]
+KeyError: 'bootstrap4'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    response = response.render()
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\response.py", line 105, in render
+    self.content = self.rendered_content
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\response.py", line 83, in rendered_content
+    return template.render(context, self._request)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\loader_tags.py", line 127, in render
+    compiled_parent = self.get_parent(context)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\loader_tags.py", line 124, in get_parent
+    return self.find_template(parent, context)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\loader_tags.py", line 103, in find_template
+    template, origin = context.template.engine.find_template(
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\loaders\base.py", line 29, in get_template
+    return Template(
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 193, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\defaulttags.py", line 1091, in load
+    lib = find_library(parser, name)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\defaulttags.py", line 1036, in find_library
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: 'bootstrap4' is not a registered tag library. Must be one of:
+account
+admin_list
+admin_modify
+admin_urls
+cache
+censor
+flatpages
+i18n
+l10n
+log
+socialaccount
+static
+tz
+2021-10-10 22:34:46,816 ERROR "GET / HTTP/1.1" 500 170657 C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\core\servers\basehttp.py None
+2021-10-10 22:36:27,484 ERROR Internal Server Error: / C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\utils\log.py (<class 'django.template.exceptions.TemplateSyntaxError'>, TemplateSyntaxError("'bootstrap4' is not a registered tag library. Must be one of:\naccount\nadmin_list\nadmin_modify\nadmin_urls\ncache\ncensor\nflatpages\ni18n\nl10n\nlog\nsocialaccount\nstatic\ntz"), <traceback object at 0x000001864F1BC300>)
+Traceback (most recent call last):
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\defaulttags.py", line 1034, in find_library
+    return parser.libraries[name]
+KeyError: 'bootstrap4'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    response = response.render()
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\response.py", line 105, in render
+    self.content = self.rendered_content
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\response.py", line 83, in rendered_content
+    return template.render(context, self._request)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\loader_tags.py", line 127, in render
+    compiled_parent = self.get_parent(context)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\loader_tags.py", line 124, in get_parent
+    return self.find_template(parent, context)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\loader_tags.py", line 103, in find_template
+    template, origin = context.template.engine.find_template(
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\loaders\base.py", line 29, in get_template
+    return Template(
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 193, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\defaulttags.py", line 1091, in load
+    lib = find_library(parser, name)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\defaulttags.py", line 1036, in find_library
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: 'bootstrap4' is not a registered tag library. Must be one of:
+account
+admin_list
+admin_modify
+admin_urls
+cache
+censor
+flatpages
+i18n
+l10n
+log
+socialaccount
+static
+tz
+2021-10-10 22:36:27,492 ERROR "GET / HTTP/1.1" 500 170693 C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\core\servers\basehttp.py None
+2021-10-10 22:37:29,386 ERROR Internal Server Error: / C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\utils\log.py (<class 'django.template.exceptions.TemplateSyntaxError'>, TemplateSyntaxError("'bootstrap4' is not a registered tag library. Must be one of:\naccount\nadmin_list\nadmin_modify\nadmin_urls\ncache\ncensor\nflatpages\ni18n\nl10n\nlog\nsocialaccount\nstatic\ntz"), <traceback object at 0x000001864F0DDCC0>)
+Traceback (most recent call last):
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\defaulttags.py", line 1034, in find_library
+    return parser.libraries[name]
+KeyError: 'bootstrap4'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    response = response.render()
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\response.py", line 105, in render
+    self.content = self.rendered_content
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\response.py", line 83, in rendered_content
+    return template.render(context, self._request)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\loader_tags.py", line 127, in render
+    compiled_parent = self.get_parent(context)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\loader_tags.py", line 124, in get_parent
+    return self.find_template(parent, context)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\loader_tags.py", line 103, in find_template
+    template, origin = context.template.engine.find_template(
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\loaders\base.py", line 29, in get_template
+    return Template(
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 193, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\defaulttags.py", line 1091, in load
+    lib = find_library(parser, name)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\defaulttags.py", line 1036, in find_library
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: 'bootstrap4' is not a registered tag library. Must be one of:
+account
+admin_list
+admin_modify
+admin_urls
+cache
+censor
+flatpages
+i18n
+l10n
+log
+socialaccount
+static
+tz
+2021-10-10 22:37:29,390 ERROR "GET / HTTP/1.1" 500 170731 C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\core\servers\basehttp.py None
+2021-10-10 22:38:57,364 ERROR Internal Server Error: / C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\utils\log.py (<class 'django.template.exceptions.TemplateSyntaxError'>, TemplateSyntaxError("'bootstrap' is not a registered tag library. Must be one of:\naccount\nadmin_list\nadmin_modify\nadmin_urls\ncache\ncensor\nflatpages\ni18n\nl10n\nlog\nsocialaccount\nstatic\ntz"), <traceback object at 0x000001864F055680>)
+Traceback (most recent call last):
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\defaulttags.py", line 1034, in find_library
+    return parser.libraries[name]
+KeyError: 'bootstrap'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    response = response.render()
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\response.py", line 105, in render
+    self.content = self.rendered_content
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\response.py", line 83, in rendered_content
+    return template.render(context, self._request)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\loader_tags.py", line 127, in render
+    compiled_parent = self.get_parent(context)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\loader_tags.py", line 124, in get_parent
+    return self.find_template(parent, context)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\loader_tags.py", line 103, in find_template
+    template, origin = context.template.engine.find_template(
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\loaders\base.py", line 29, in get_template
+    return Template(
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 193, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\defaulttags.py", line 1091, in load
+    lib = find_library(parser, name)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\defaulttags.py", line 1036, in find_library
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: 'bootstrap' is not a registered tag library. Must be one of:
+account
+admin_list
+admin_modify
+admin_urls
+cache
+censor
+flatpages
+i18n
+l10n
+log
+socialaccount
+static
+tz
+2021-10-10 22:38:57,368 ERROR "GET / HTTP/1.1" 500 170679 C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\core\servers\basehttp.py None
+2021-10-10 22:40:19,715 ERROR Internal Server Error: / C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\utils\log.py (<class 'django.template.exceptions.TemplateSyntaxError'>, TemplateSyntaxError("'bootstrap4' is not a registered tag library. Must be one of:\naccount\nadmin_list\nadmin_modify\nadmin_urls\ncache\ncensor\nflatpages\ni18n\nl10n\nlog\nsocialaccount\nstatic\ntz"), <traceback object at 0x0000023CE5387640>)
+Traceback (most recent call last):
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\defaulttags.py", line 1034, in find_library
+    return parser.libraries[name]
+KeyError: 'bootstrap4'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    response = response.render()
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\response.py", line 105, in render
+    self.content = self.rendered_content
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\response.py", line 83, in rendered_content
+    return template.render(context, self._request)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\loader_tags.py", line 127, in render
+    compiled_parent = self.get_parent(context)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\loader_tags.py", line 124, in get_parent
+    return self.find_template(parent, context)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\loader_tags.py", line 103, in find_template
+    template, origin = context.template.engine.find_template(
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\loaders\base.py", line 29, in get_template
+    return Template(
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 193, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\defaulttags.py", line 1091, in load
+    lib = find_library(parser, name)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\defaulttags.py", line 1036, in find_library
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: 'bootstrap4' is not a registered tag library. Must be one of:
+account
+admin_list
+admin_modify
+admin_urls
+cache
+censor
+flatpages
+i18n
+l10n
+log
+socialaccount
+static
+tz
+2021-10-10 22:40:19,721 ERROR "GET / HTTP/1.1" 500 170556 C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\core\servers\basehttp.py None
+2021-10-10 22:42:13,281 ERROR Internal Server Error: /news/ C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\utils\log.py (<class 'django.template.exceptions.TemplateSyntaxError'>, TemplateSyntaxError("'bootstrap4' is not a registered tag library. Must be one of:\naccount\nadmin_list\nadmin_modify\nadmin_urls\ncache\ncensor\nflatpages\ni18n\nl10n\nlog\nsocialaccount\nstatic\ntz"), <traceback object at 0x0000026124BFE540>)
+Traceback (most recent call last):
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\defaulttags.py", line 1034, in find_library
+    return parser.libraries[name]
+KeyError: 'bootstrap4'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    response = response.render()
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\response.py", line 105, in render
+    self.content = self.rendered_content
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\response.py", line 83, in rendered_content
+    return template.render(context, self._request)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\loader_tags.py", line 127, in render
+    compiled_parent = self.get_parent(context)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\loader_tags.py", line 124, in get_parent
+    return self.find_template(parent, context)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\loader_tags.py", line 103, in find_template
+    template, origin = context.template.engine.find_template(
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\loaders\base.py", line 29, in get_template
+    return Template(
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 193, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\defaulttags.py", line 1091, in load
+    lib = find_library(parser, name)
+  File "C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\template\defaulttags.py", line 1036, in find_library
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: 'bootstrap4' is not a registered tag library. Must be one of:
+account
+admin_list
+admin_modify
+admin_urls
+cache
+censor
+flatpages
+i18n
+l10n
+log
+socialaccount
+static
+tz
+2021-10-10 22:42:13,290 ERROR "GET /news/ HTTP/1.1" 500 224922 C:\Users\asmal\Desktop\venv\NewsPortal_lenovo\lib\site-packages\django\core\servers\basehttp.py None

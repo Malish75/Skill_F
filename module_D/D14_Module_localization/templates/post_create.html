@@ -17,7 +17,7 @@
 {#    {% cache 10 header %} <!-- Кэшируем отдельный блок на 30 секунд -->#}
         {% block header %}
 
-    <form method="POST" class='form-control'>
+    <form method='POST' class="form-control">
         {% csrf_token %}
         {{ form.non_field.errors }}
 

@@ -27,6 +27,9 @@
 - py manage.py check --deploy !!!!!!!!!!!!!!!!!!!!!!!!!!!
 - path('', cache_page(60*1)(PostsList.as_view())), вернуть кеш
 
+# pip freeze > requirements.txt
+# pip install -r requirements.txt
+
 
 ++++++++++++++++++++++++++++++
 НЕПОНЯТКИ И СТРАННОСТИ

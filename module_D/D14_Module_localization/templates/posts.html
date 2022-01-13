@@ -29,8 +29,12 @@
 
 {% if posts %}
     <table>
-        <th> {% trans 'Дата публикации' %}</th><th>{% trans 'Автор' %}</th><th> {% trans 'Заголовок' %} </th><th> {% trans 'Текст' %}</th> <!--<th>Категория</th>-->
-        <br>
+        <tr>
+            <th> {% trans 'Дата публикации' %}</th>
+            <th>{% trans 'Автор' %}</th>
+            <th> {% trans 'Заголовок' %} </th>
+            <th> {% trans 'Текст' %}</th> <!--<th>Категория</th>-->
+        </tr>
         {% for post in object_list %}
              <tr>
                 <td>{{ post.time_in_new_post|date:'Y-m-d H:i:s' }}</td>
