@@ -1,16 +1,30 @@
 {% extends 'boardapp/default.html' %}
 
-{% block title %} Добавление объявления {% endblock %}
+{% block title %} {% if update %} Редактирование {% else %} Добавление {% endif %} {% endblock %}
 
 {% block content %}
-  <h2> Добавить объявление: </h2><br>
-  <form method="post" >
-      {% csrf_token %}
-      {{ form.title_post }}<br>
-      {{ form.text_post }}<br>
-      {{ form.category_post }}<br>
-      <button type="submit" class="btn btn-success">Добавить</button>
-      <span>{{error}}</span>
-  </form>
+
+<p><a href="{% url 'home' %}">К объявлениям</a></p>
+
+
+
+{% if success_update %} <h2> Редактировать объявление: </h2><br>
+<form id="update_data" method="post">
+    {% csrf_token %}
+    {{ form}}
+    <br><input form="update_data" type="submit" value="Сохранить">
+</form>
+
+{% else %} <h2> Добавить объявление: </h2><br>
+ <form method="post" >
+     {% csrf_token %}
+     {{ form.title_post }}<br>
+     {{ form.text_post }}<br>
+     {{ form.category_post }}<br>
+     <button type="submit" class="btn btn-success">Отправить</button>
+     <span>{{error}}</span>
+     </form>
+
+{% endif %}
 
 {% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'boardapp/default.html' %}
+
+{% load account_tags %}
+{% load i18n %}
+
+{% block head_title %}{% trans "Log out" %}{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-5">
+            <form method="POST" action="{% url 'account_logout' %}">
+                <legend>{% trans "Выход" %}</legend>
+                <fieldset>
+                    {% csrf_token %}
+                    <p>{% trans "Уверены, что хотите выйти?" %}</p>
+                    <button type="submit" class="btn btn-primary">{% trans "Log out" %}</button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

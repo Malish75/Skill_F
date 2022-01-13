@@ -1,24 +1,25 @@
 from .models import Posts, Messages
 from  django.forms import ModelForm, TextInput, Select, Textarea
-import datetime
+import account.forms
+
 
 class PostForm(ModelForm):
     class Meta:
         model = Posts
-        fields = ['title_post', 'text_post', 'category_post', ]
+        # fields = '__all__'
+        fields = ['title_post', 'text_post', 'category_post', 'author']
         widgets = {
             'title_post': TextInput(attrs={
-                "class": "form-control",
                 'placeholder': 'Заголовок'
                 }),
             'text_post': Textarea(attrs={
-                "class": "form-control",
                 'placeholder': 'Текст объявления'
                 }),
-            'category_post': Select(attrs={
-                "class": "form-control",
-                }),
             }
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields:
+            self.fields[field].widget.attrs['class'] = 'form-control'
 
 
 class MessageForm(ModelForm):
@@ -27,7 +28,19 @@ class MessageForm(ModelForm):
         fields = ['text_message',]
         widgets = {
                 'text_message': Textarea(attrs={
-                "class": "form-control",
-                'placeholder': 'Текст отклика'
-                }),
-        }
+                    'rows': 1,
+                    "class": "form-control",
+                    'placeholder': '...',
+                    }
+                ),
+            }
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields:
+            self.fields[field].widget.attrs['class'] = 'form-control'
+
+
+class SignupForm(account.forms.SignupForm):
+    def __init__(self, *args, **kwargs):
+        super(SignupForm, self).__init__(*args, **kwargs)
+        del self.fields["username"]

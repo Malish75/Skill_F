@@ -1,4 +1,7 @@
 <!doctype html>
+
+{% load bootstrap4 %}
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -28,25 +31,28 @@
     </a>
     <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
         <a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'home' %}">Все объявления</a>
-        <a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'create' %}">Добавить объявление</a>
+        {% if user.is_authenticated %}
+            <a class="me-3 py-2 text-dark text-decoration-none" href="#">Мои объявления</a>
+            <a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'post_create' %}">Добавить объявление</a>
+            <a class="me-3 py-2 text-dark text-decoration-none btn-danger" href="{% url 'account_logout' %}" >Выйти</a>
+        {% else %}
+            <a class="me-3 py-2 text-dark text-decoration-none" href="/account/login/">Войти</a>
+        {% endif %}
         <a class="me-3 py-2 text-dark text-decoration-none" href="/admin/">Админка</a>
-    </nav>
-    <a class="link-secondary" href="#" aria-label="Search">
+        <a class="link-secondary" href="#" aria-label="Search">
           <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="none" stroke="currentColor"
                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24">
               <title>Поиск</title><circle cx="10.5" cy="10.5" r="7.5"></circle><path d="M21 21l-5.2-5.2"></path></svg>
-    </a>
-
-    {% if user.is_authenticated %}
-      <a class="btn btn-sm btn-outline-secondary" href="/accounts/logout/">Выйти</a>
-    {% else %}
-      <a class="btn btn-sm btn-outline-secondary" href="/accounts/login/">Войти</a>
-    {% endif %}
-
-  </div>
+           </a>
+        </nav>
+      </div>
 
   <div class="container">
-      {% block content %} {% endblock %}
+      {% block content %}
+
+
+
+      {% endblock %}
   </div>
 
 </body>

@@ -3,21 +3,68 @@
 {% block title %} Главная {% endblock %}
 
 {% block content %}
-  <h2> Все объявления: </h2><br>
-
-  {% if posts %}
-    {% for el in posts %}
-      <div class="alert alert-warning mt-2">
-        <h4><a href="{% url 'post_detail' pk=el.pk %}">{{el.title_post }} </a></h4>
-        <p> {{ el.text_post }} <br>
-        <i> {{ el.dt_post}} <br> Категория - {{el.category_post}} </i></p>
+<!--<h2> Все объявления: </h2><br>-->
+{{request.user}}
 
 
+{% if user.is_authenticated %}
+<button type="submit"><a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'post_create' %}">
+    Добавить объявление</a></button>
+{% else %}
+    , Вы не авторизованы, поэтому можете только просматривать объявления.
+{% endif %}
 
-      </div>
-    {% endfor %}
-  {% else %}
-    <h4> Список объявлений пуст. </h4>
-  {% endif %}
+<br><br>
+
+
+{% if messages %}
+ <div class="alert alert-success">
+     {% for m in messages %}
+     {{m}}
+     {% endfor %}
+ </div>
+{% endif %}
+
+
+{% if get_post %}
+{% for el in get_post.all %}
+        <div class="alert alert-warning mt-2">
+            <p><i> Автор - {{el.author}}</i><i>, добавлено {{ el.dt_post}} </i><i>, категория - {{el.category_post}} </i> </p>
+            <h4><a href="{% url 'post_detail' pk=el.pk %}">{{el.title_post|truncatewords:'15' }} </a></h4>
+            <p> {{ el.text_post|truncatewords:'10' }} <br></p>
+
+            <a class="btn-1" href="{% url 'update_page' el.id %}" method="POST">Редактировать</a>
+            <form id="delete_form" action="{% url 'delete_page' el.id %}" method="POST">{% csrf_token %}</form>
+
+            {% if user.is_authenticated %}
+            <a class="btn-1" href="{% url 'post_detail' el.id %}" method="POST">Написать отклик</a>
+            {% endif %}
+
+            <a href='javascript:void()' onclick="delete_question()">Удалить</a>
+            <script>
+                function delete_question() {
+                    if (confirm("Удалить публикацию?"))
+                        (document.getElementById('delete_form').submit())
+                }
+                </script>
+        </div>
+
+<!--{% if user.is_authenticated %}
+             <button type="submit" class="btn btn-success">Написать отклик</button>
+            {% endif %}-->
+
+{% endfor %}
+
+
+{% for el in get_post.posts.all %}
+{{el.author}}
+
+{% endfor %}
+
+
+
+{% else %}
+  <h4> Список объявлений пуст. </h4>
+{% endif %}
 
 {% endblock %}

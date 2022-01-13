@@ -4,48 +4,54 @@
 
 {% block content %}
 
+{{request.user}}
 
-
-<table>
-    <tr>
-        <td>
-
-            <div class="alert alert-warning mt-2">
-  <h4> {{post.title_post}} </a></h4>
-   <p> {{ post.text_post }} <br>
-       -----------------------------<br>
-   <i> Автор -  СДЕЛАТЬ!!   , {{ post.dt_post}} <br>
-       Категория - {{post.category_post}} </i></p>
-</div>
-
-
-        </td>
-
-        <td>
-
-            <button type="submit" class="btn btn-success">Написать отклик</button>
-
-        </td>
-
-
-    </tr>
+<div class="alert alert-warning mt-2">
+    <h4> {{get_post.title_post}} </a></h4>
+    <p> {{ get_post.text_post }} <br>
+        -----------------------------<br>
+        <i> Автор -  {{get_post.author_post}}   , {{ get_post.dt_post}} <br>
+            Категория - {{get_post.category_post}} </i></p>
 
 
 
+{% if user.is_authenticated %}
+    <form action=""  method="post" >
+     {% csrf_token %}
+     {{form}}
+        <br>
+     <button type="submit" class="btn btn-success">Отправить</button>
+     <span>{{error}}</span>
+     </form>
+     </div>
+{% endif %}
+
+<!--
+{% if messages %}
+            <div class="alert alert-success">
+            {% for m in messages %} {{m}} {% endfor %}
+                </div>
+        {% endif %}
+-->
 
 
-</table>
+{% if user.is_authenticated %}
+  {% if get_post.messages_posts.all %}
+    <p><b>Отклики (всего - {{get_post.messages_posts.all.count}}):</b></p>
+    <ul>
+        {% for mess in get_post.messages_posts.all %}
+        <li>
+            <i><b>[{{mess.status}}]</b>,{{mess.dt_message}}, {{mess.author}}</i> <br>
+            {{mess.text_message}}
+            </li>
+        <br>
+        {% endfor %}
+        </ul>
+  {% endif %}
+  {% else %}
+    Откликов нет, либо у Вас нет прав для их просмотра.
 
-
-
-
-
-
-
-
-
-
-
+{% endif %}
 
 
 
